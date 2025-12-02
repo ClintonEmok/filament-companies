@@ -19,6 +19,10 @@ enum Provider: string implements HasLabel
     case Twitter = 'twitter';
     case TwitterOAuth2 = 'twitter-oauth-2';
 
+    case Microsoft = 'microsoft';
+
+    case MicrosoftAzure = 'microsoft-azure';
+
     public function getLabel(): string
     {
         return match ($this) {
@@ -30,6 +34,8 @@ enum Provider: string implements HasLabel
             self::LinkedIn, self::LinkedInOpenId => 'LinkedIn',
             self::Slack => 'Slack',
             self::Twitter, self::TwitterOAuth2 => 'X',
+            self::Microsoft => 'Microsoft',
+            self::MicrosoftAzure => 'MicrosoftAzure',
         };
     }
 
@@ -49,6 +55,7 @@ enum Provider: string implements HasLabel
             self::LinkedIn, self::LinkedInOpenId => 'filament-companies::components.socialite-icons.linkedin',
             self::Slack => 'filament-companies::components.socialite-icons.slack',
             self::Twitter, self::TwitterOAuth2 => 'filament-companies::components.socialite-icons.twitter',
+            self::Microsoft, self::MicrosoftAzure => 'filament-companies::components.socialite-icons.microsoft',
         };
 
         return view($viewName);
